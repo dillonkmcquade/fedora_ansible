@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "editor.fontLigatures": true,
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "Operator Mono Lig, 'Menlo', 'Monaco', 'Courier New', monospace",
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+    "editor.fontWeight": "200",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.startupEditor": "newUntitledFile"
+}
