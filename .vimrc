@@ -2,6 +2,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
+Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
+Plug 'xavierd/clang_complete'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'frazrepo/vim-rainbow'
 Plug 'itchyny/lightline.vim'
@@ -27,10 +30,15 @@ set softtabstop=4
 set expandtab
 set autoindent
 set cindent
+set colorcolumn=110
+
+
 "
+highlight ColorColumn ctermbg=darkgray
 syntax on
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 colorscheme onehalfdark
 let g:lightline_theme = 'onehalfdark'
 nmap <F6> :NERDTreeToggle<CR>
 let g:rainbow_active = 1
+let g:clang_library_path='/usr/lib64/libclang.so.9'
