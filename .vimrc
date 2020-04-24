@@ -24,7 +24,7 @@ set nocompatible
 set showmatch
 set splitbelow
 set splitright
-
+set relativenumber
 
 highlight ColorColumn ctermbg=darkgray
 
