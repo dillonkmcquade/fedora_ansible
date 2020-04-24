@@ -1,19 +1,8 @@
-call plug#begin('~/.vim/plugged')
-Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-gitgutter'
-Plug 'xavierd/clang_complete'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'frazrepo/vim-rainbow'
-Plug 'itchyny/lightline.vim'
-Plug 'sonph/onehalf', {'rtp': 'vim/' }
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-call plug#end()
+"==================================================================================
+"                               VIMRC
+"=================================================================================
 
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+set shortmess+=I "disable startup message
 set encoding=UTF-8
 set showcmd " Show (partial) command in status line.
 set wrap
@@ -31,14 +20,37 @@ set expandtab
 set autoindent
 set cindent
 set colorcolumn=110
+set nocompatible
+set showmatch
+set splitbelow
+set splitright
 
 
-"
 highlight ColorColumn ctermbg=darkgray
+
+"Turns on syntax highlighting
 syntax on
+
+filetype plugin on
+
+"Closes vim if nerdtree buffer is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"sonph/onehalf plugin
 colorscheme onehalfdark
-let g:lightline_theme = 'onehalfdark'
-nmap <F6> :NERDTreeToggle<CR>
+
+"rainbow brackets plugin
 let g:rainbow_active = 1
-let g:clang_library_path='/usr/lib64/libclang.so.9'
+
+
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+"Key mappings
+imap jj <Esc>
+nmap <Space> :w<CR>
+nmap <F6> :NERDTreeToggle<CR>  
+
