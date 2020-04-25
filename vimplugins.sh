@@ -8,4 +8,6 @@ mv onehalf/vim/colors ~/.vim/
 rm -rf onehalf
 git clone https://github.com/airblade/vim-gitgutter.git
 git clone https://github.com/frazrepo/vim-rainbow.git
+git clone https://github.com/dense-analysis/ale.git
+git clone https://github.com/maximbaz/lightline-ale.git
 echo "Finished installing Vim repos"
