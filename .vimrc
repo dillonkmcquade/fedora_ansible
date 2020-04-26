@@ -59,6 +59,7 @@ nmap <F6> :NERDTreeToggle<CR>
 autocmd Filetype c setlocal shiftwidth=4 softtabstop=4 cindent
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
 
+"Lightline settings and ALE integration
 let g:lightline = {}
 let g:lightline.colorscheme = 'jellybeans'
 let g:lightline.component_expand = {
