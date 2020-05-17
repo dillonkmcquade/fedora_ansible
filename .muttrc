@@ -1,0 +1,40 @@
+source "gpg -dq $HOME/.my-pwds.gpg/mutt-pw.gpg |"
+set imap_user = "dillonkmcquade@gmail.com"
+set imap_pass =$my_pass 
+set smtp_url = "smtp://dillonkmcquade@smtp.gmail.com:587/"
+set smtp_pass =$my_pass 
+set from = "dillonkmcquade@gmail.com"
+set realname = "Dillon McQuade"
+#
+# # Change the following line to a different editor you prefer.
+set editor = 'vim + -c "set textwidth=72" -c "set wrap"'
+# Basic config
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+inbox"
+set record = "+sent"
+set trash = "+trash"
+set postponed = "+drafts"
+set imap_check_subscribed=yes
+set hostname = gmail.com
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+set pager_index_lines = 10
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor <Tab> complete-query
+bind editor ^T complete
+bind editor <space> noop
+
