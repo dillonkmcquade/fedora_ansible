@@ -1,21 +1,12 @@
-source "gpg -dq $HOME/.my-pwds.gpg/mutt-pw.gpg |"
-set imap_user = "dillonkmcquade@gmail.com"
-set imap_pass =$my_pass 
-set smtp_url = "smtp://dillonkmcquade@smtp.gmail.com:587/"
-set smtp_pass =$my_pass 
-set from = "dillonkmcquade@gmail.com"
-set realname = "Dillon McQuade"
-#
+source ~/.mutt/hotmail
+folder-hook $folder 'source ~/.mutt/hotmail'
+source ~/.mutt/gmail
+folder-hook $folder 'source ~/.mutt/gmail'
 # # Change the following line to a different editor you prefer.
 set editor = 'vim + -c "set textwidth=72" -c "set wrap"'
 # Basic config
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+inbox"
-set record = "+sent"
-set trash = "+trash"
-set postponed = "+drafts"
-set imap_check_subscribed=yes
-set hostname = gmail.com
+unset imap_passive
+set mbox_type=Maildir
 set mail_check = 120
 set timeout = 300
 set imap_keepalive = 300
@@ -28,6 +19,9 @@ set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
 set auto_tag = yes
 set pager_index_lines = 10
+set sidebar_visible
+set mail_check_stats
+set sidebar_format = "%B%?F? [%f]?%* %?N?%N/?%s"
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
@@ -38,3 +32,28 @@ bind editor <Tab> complete-query
 bind editor ^T complete
 bind editor <space> noop
 
+
+color indicator brightyellow default
+color index_subject color43 default '.*'
+color index_author color134 default '.*'
+color index_number color99 default
+color index_subject color44 default "~N"
+color index_author color147 default "~N"
+color signature brightgreen default
+color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color message cyan default
+color header brightcyan default ".*"
+color header brightwhite default "^(CC|BCC)"
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+set markers=no
+
+
+
+unset help
+
+macro index 'f' '<sync-mailbox><enter-command>source ~/.mutt/hotmail<enter><change-folder>!<enter>'
+macro index 'g' '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
