@@ -23,15 +23,13 @@ set splitbelow
 set splitright
 set relativenumber
 set columns=80
-
-highlight ColorColumn ctermbg=darkgray
-
-"Turns on syntax highlighting
 syntax on
-
 filetype on
 filetype plugin on
 filetype indent on
+
+
+highlight ColorColumn ctermbg=darkgray
 
 "Closes vim if nerdtree buffer is last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -43,7 +41,7 @@ colorscheme onehalfdark
 let g:rainbow_active = 1
 
 "Ale integration with lightline
-"let g:lightline#extensions#ale#enabled = 1
+let g:lightline#extensions#ale#enabled = 1
 
 " Remove newbie crutches in Normal Mode
 nnoremap <Down> <Nop>

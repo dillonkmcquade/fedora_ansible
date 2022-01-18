@@ -3,6 +3,7 @@
 path+=('/home/dillon/.local/bin')
 path+=('/usr/local/bin')
 path+=('/home/dillon/ideaIC-2020.1/idea-IC-201.6668.121/bin')
+path+=('/home/dillon/monero/build/Linux/release-v0.17/release/bin')
 export PATH
 
 # Path to your oh-my-zsh installation.

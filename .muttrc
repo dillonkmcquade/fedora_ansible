@@ -52,7 +52,6 @@ set markers=no
 
 
 
-unset help
 
 macro index 'f' '<sync-mailbox><enter-command>source ~/.mutt/hotmail<enter><change-folder>!<enter>'
 macro index 'g' '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
