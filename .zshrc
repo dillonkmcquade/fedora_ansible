@@ -6,9 +6,18 @@ path+=('/home/dillon/ideaIC-2020.1/idea-IC-201.6668.121/bin')
 path+=('/home/dillon/monero/build/Linux/release-v0.17/release/bin')
 export PATH
 
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/dillon/.oh-my-zsh"
 
+#Home directory cleanup
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+export _JAVA_OPTIONS=-Djava.utils.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -104,10 +113,7 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshrc="vim ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
+alias vimrc="vim $XDG_CONFIG_HOME/vim/vimrc"
 alias sdf="sudo dnf -y update"
-alias mutt-hotmail="mutt -F .muttrc-hotmail"
 alias bitwarden="~/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "$XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" #this loads nvm
