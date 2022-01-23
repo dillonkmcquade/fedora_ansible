@@ -1,7 +1,7 @@
-source ~/.mutt/hotmail
-folder-hook $folder 'source ~/.mutt/hotmail'
-source ~/.mutt/gmail
-folder-hook $folder 'source ~/.mutt/gmail'
+source $XDG_CONFIG_HOME/neomutt/hotmail
+folder-hook $folder 'source $XDG_CONFIG_HOME/neomutt/hotmail'
+source $XDG_CONFIG_HOME/neomutt/gmail
+folder-hook $folder 'source $XDG_CONFIG_HOME/neomutt/gmail'
 # # Change the following line to a different editor you prefer.
 set editor = 'vim + -c "set textwidth=72" -c "set wrap"'
 # Basic config
@@ -10,9 +10,9 @@ set mbox_type=Maildir
 set mail_check = 120
 set timeout = 300
 set imap_keepalive = 300
-set header_cache=~/.mutt/cache/headers
-set message_cachedir=~/.mutt/cache/bodies
-set certificate_file=~/.mutt/certificates
+set header_cache=$XDG_CACHE_HOME/neomutt/headers
+set message_cachedir=$XDG_CACHE_HOME/neomutt/bodies
+set certificate_file=$XDG_CONFIG_HOME/neomutt/certificates
 set move = no
 set include
 set sort = 'threads'
@@ -53,6 +53,6 @@ set markers=no
 
 
 
-macro index 'f' '<sync-mailbox><enter-command>source ~/.mutt/hotmail<enter><change-folder>!<enter>'
-macro index 'g' '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
+macro index 'f' '<sync-mailbox><enter-command>source $XDG_CONFIG_HOME/neomutt/hotmail<enter><change-folder>!<enter>'
+macro index 'g' '<sync-mailbox><enter-command>source $XDG_CONFIG_HOME/neomutt/gmail<enter><change-folder>!<enter>'
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'

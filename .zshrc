@@ -15,9 +15,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export _JAVA_OPTIONS=-Djava.utils.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export GOPATH="$XDG_DATA_HOME"/go
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+export TEXMFHOME=$XDG_DATA_HOME/texmf
+export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -82,7 +85,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose npm nvm npx)
+plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,20 +103,15 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export EDITOR='vim'
-# Compilation flags
+export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshrc="vim ~/.zshrc"
-alias vimrc="vim $XDG_CONFIG_HOME/vim/vimrc"
+# Aliases
+alias zshrc="nvim ~/.zshrc"
+alias vimrc="nvim $XDG_CONFIG_HOME/nvim/init.vim"
+alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
 alias sdf="sudo dnf -y update"
+alias vim="nvim"
 alias bitwarden="~/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
