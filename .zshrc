@@ -8,7 +8,7 @@ export PATH
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dillon/.oh-my-zsh"
+export ZSH="/home/dillon/.local/share/oh-my-zsh"
 
 #Home directory cleanup
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -21,17 +21,14 @@ export GOPATH="$XDG_DATA_HOME"/go
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export TEXMFHOME=$XDG_DATA_HOME/texmf
 export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export LIBVA_DRIVER_NAME=i965
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="af-magic"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -81,10 +78,6 @@ ZSH_THEME="af-magic"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
@@ -105,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
-
+export BROWSER='brave-browser'
 #
 # Aliases
 alias zshrc="nvim ~/.zshrc"
@@ -114,4 +107,21 @@ alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
 alias sdf="sudo dnf -y update"
 alias vim="nvim"
 alias bitwarden="~/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
+alias c="clear"
+alias lf="lfcd"
+
+#Use lf to switch directories and bind to ctrl-o
+lfcd () {
+        tmp="$(mktemp)"
+        lf -last-dir-path="$tmp" "$0"
+        if [ -f "$tmp" ]; then
+                dir="$(cat "$tmp")"
+                rm -f "$tmp"
+                [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+        fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /home/dillon/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
