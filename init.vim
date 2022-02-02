@@ -41,7 +41,11 @@ filetype indent on
 highlight ColorColumn ctermbg=darkgray
 autocmd Filetype c setlocal shiftwidth=4 softtabstop=4 cindent
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
+
+"updates plugin on vim launch
 autocmd VimEnter * PlugInstall
+
+"plugin manager
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/vim/plugged"'))
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'

@@ -27,15 +27,16 @@ _comp_options+=(globdots) #include hidden files
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export ELECTRUMDIR="$HOME/.local/share/electrum"
 export _JAVA_OPTIONS=-Djava.utils.prefs.userRoot="$XDG_CONFIG_HOME/java"
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-export GOPATH="$XDG_DATA_HOME"/go
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
-export TEXMFHOME=$XDG_DATA_HOME/texmf
-export TEXMFCONFIG=$XDG_CONFIG_HOME/texlive/texmf-config
-export PYLINTHOME="$XDG_CACHE_HOME"/pylint
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GOPATH="$XDG_DATA_HOME/go"
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export TEXMFHOME="$XDG_DATA_HOME/texmf"
+export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export LIBVA_DRIVER_NAME=i965
+export LIBVA_DRIVERS_PATH=/usr/lib64/dri
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
