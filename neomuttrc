@@ -7,19 +7,16 @@ set editor = 'nvim + -c "set textwidth=72" -c "set wrap"'
 #For opening HTML emails
 set mailcap_path = $HOME/.config/neomutt/mailcap:/usr/local/share/neomutt/mailcap:$mailcap_path
 # Basic config
-unset imap_passive
-set mbox_type=Maildir
-set mail_check = 120
-set timeout = 300
-set imap_keepalive = 300
+#set mbox_type=Maildir
+set mail_check = 60 
 set header_cache=$HOME/.cache/neomutt/headers
 set message_cachedir=$HOME/.cache/neomutt/bodies
 set certificate_file=$HOME/.config/neomutt/certificates
 set move = no
 set include
 set sort_aux = 'reverse-last-date-received'
-set auto_tag = yes
-set pager_index_lines = 10
+#set auto_tag = yes
+#set pager_index_lines = 10
 ignore "Authentication-Results:"
 ignore "DomainKey-Signature:"
 ignore "DKIM-Signature:"
