@@ -11,7 +11,7 @@ sh install.sh
 This script installs essential configuration files and programs for a new install of Fedora.
 
 # Installed programs:
--neovim
+- neovim
 -zsh
 -neomutt
 -newsboat
