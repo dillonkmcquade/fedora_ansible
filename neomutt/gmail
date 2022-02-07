@@ -1,0 +1,17 @@
+source "gpg -dq $HOME/.my-pwds.gpg/gmail-pw.pgp |"
+set imap_user = "dillonkmcquade@gmail.com"
+set imap_pass =$my_pass 
+set smtp_url = "smtp://dillonkmcquade@gmail.com@smtp.gmail.com:587/"
+set smtp_pass =$my_pass 
+set from = "dillonkmcquade@gmail.com"
+set realname = "Dillon McQuade"
+set spoolfile= +INBOX
+set record = +Sent
+#
+# # Change the following line to a different editor you prefer.
+# Basic config
+set folder = "imaps://imap.gmail.com:993/"
+set imap_check_subscribed=yes
+set hostname = gmail.com
+
+account-hook $folder "set imap_user=dillonkmcquade@gmail.com imap_pass=$my_pass"

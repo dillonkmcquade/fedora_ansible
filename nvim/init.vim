@@ -9,6 +9,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+        silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/colors
         silent !curl "https://raw.githubusercontent.com/sonph/onehalf/master/vim/colors/onehalfdark.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/colors/onehalfdark.vim
 	autocmd VimEnter * PlugInstall
 endif

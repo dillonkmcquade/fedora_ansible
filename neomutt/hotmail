@@ -1,0 +1,19 @@
+source "gpg -dq $HOME/.my-pwds.gpg/hotmail-pw.pgp |"
+set imap_user = "dillonkmcquade@hotmail.com"
+set imap_pass =$my_pass 
+set smtp_url = "smtp://dillonkmcquade@hotmail.com@smtp.office365.com:587/"
+set smtp_pass =$my_pass 
+set from = "dillonkmcquade@hotmail.com"
+set realname = "Dillon McQuade"
+#
+# # Change the following line to a different editor you prefer.
+# Basic config
+set folder = "imaps://outlook.office365.com/"
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+trash"
+set postponed = "+Drafts"
+set imap_check_subscribed=yes
+set hostname = hotmail.com
+
+account-hook $folder "set imap_user=dillonkmcquade@hotmail.com imap_pass=$my_pass"

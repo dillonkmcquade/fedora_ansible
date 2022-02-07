@@ -42,6 +42,9 @@ echo 'Adding RPM Fusion repos'
 sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf install -y https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
 
+mv $HOME/config-files $HOME/.config
+mv $HOME/.config/.zshrc $HOME/.zshrc
+
 echo 'Downloading programs......'
 #Download brave browser
 dnf install -y dnf-plugins-core
@@ -58,9 +61,6 @@ tlp start
 
 #Set gtk-theme to dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
-
-#Install config files
-git clone https://github.com/dillonkmcquade/config-files.git 
 
 #Reboot system
 read -p 'Reboot now? [y/N]: ' reboot
