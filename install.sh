@@ -54,7 +54,7 @@ dnf install -y brave-browser
 
 
 #Download essential programs
-dnf install -y -q neovim zsh neomutt newsboat protonvpn libva-intel-driver libappindicator-gtk3 gnome-tweaks gnome-shell-extension-appindicator tlp tlp-rdw mpv sxiv zathura seahorse-nautilus htop nmtui lf qbittorrent libva libva-utils libva-intel-hybrid-driver libva-intel-driver lynx
+dnf install -y -q neovim zsh neomutt newsboat protonvpn libappindicator-gtk3 gnome-tweaks gnome-shell-extension-appindicator tlp tlp-rdw mpv sxiv zathura seahorse-nautilus htop nmtui lf qbittorrent libva libva-utils libva-intel-driver lynx
 
 #start power-management
 tlp start
