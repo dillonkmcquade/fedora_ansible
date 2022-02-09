@@ -48,7 +48,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 #default programs
 export BROWSER='brave-browser'
 export EDITOR='nvim'
-export TERMINAL='gnome-terminal'
+export TERMINAL='foot'
 #
 # Aliases
 alias zshrc="nvim ~/.zshrc"
@@ -56,7 +56,7 @@ alias vimrc="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
 alias sdf="sudo dnf -y update"
 alias vim="nvim"
-alias bitwarden="~/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
+alias bitwarden="~/.local/src/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
 alias c="clear"
 alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"

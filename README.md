@@ -1,6 +1,6 @@
 # Install instructions
 
-### Warning: This is created for Fedora and therefore uses the `dnf` package manager.
+### Warning: This is created for Fedora and therefore uses the `dnf` package manager. Still under development.
 
 ``` 
 git clone https://github.com/dillonkmcquade/config-files.git
