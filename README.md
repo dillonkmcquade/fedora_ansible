@@ -8,7 +8,7 @@ cd config-files/
 sh install.sh
 ```
 
-This script installs essential configuration files and programs for a new install of Fedora.
+This script installs essential configuration files and programs for a new install of Fedora. Check programs.txt for full list or to add/remove programs.
 
 # Installed programs:
 - neovim
@@ -20,7 +20,8 @@ This script installs essential configuration files and programs for a new instal
 - libappindicator-gtk3
 - gnome-tweaks
 - gnome-shell-extension-appindicator
-- tlp tlp-rdw
+- tlp
+- tlp-rdw
 - mpv
 - sxiv
 - zathura
@@ -33,5 +34,4 @@ This script installs essential configuration files and programs for a new instal
 - libva-utils
 - libva-intel-driver
 - lynx
-
-
+- Brave browser
