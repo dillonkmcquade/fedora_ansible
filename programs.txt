@@ -13,7 +13,6 @@ sxiv
 zathura
 seahorse-nautilus
 htop
-nmtui
 qbittorrent
 libva
 libva-utils
