@@ -27,21 +27,24 @@ set cursorline
 set number
 set mouse=a
 set laststatus=2
+set title
 set showtabline=2
 set expandtab
 set autoindent
-set colorcolumn=110
+"set colorcolumn=110
 set nocompatible
 set showmatch
+set wildmode=longest:list,full
+set wildmenu
 set splitbelow
 set splitright
 set relativenumber
-set columns=80
+"set columns=80
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
-highlight ColorColumn ctermbg=darkgray
+"highlight ColorColumn ctermbg=darkgray
 autocmd Filetype c setlocal shiftwidth=4 softtabstop=4 cindent
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
 
@@ -52,6 +55,7 @@ autocmd VimEnter * PlugInstall
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/vim/plugged"'))
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
+Plug 'maximbaz/lightline-ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'frazrepo/vim-rainbow'
@@ -98,7 +102,8 @@ let g:lightline.component_type = {
       \     'linter_errors': 'error',
       \     'linter_ok': 'right',
       \ }
-let g:lightline.active = { 'right': [[ 'lineinfo' ], [ 'percent' ], [ 'filetype' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+let g:lightline.active = { 
+                \ 'right': [[ 'lineinfo' ], [ 'percent' ], [ 'filetype' ], [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
 let g:lightline#ale#indicator_warnings = "Warnings:"
 let g:lightline#ale#indicator_errors = "Errors:"
 

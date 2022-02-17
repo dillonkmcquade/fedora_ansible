@@ -5,7 +5,10 @@
 # speeding up the uptime on a fresh install.
 # Check comments for optional installs.
 #
-
+if [[ $EUID -ne 0 ]]; then
+        echo "This script must be run as root"
+        exit 1
+fi
 echo '
 ---------------------------------------------------------------------------
 
@@ -29,7 +32,7 @@ echo '
 read -p "Update Repos? [y/N]:" starrt
 if [ "$starrt" == "y" ]
 then
-        sudo dnf update -y 
+        dnf update -y 
         echo 'Update Successful'
         sleep 2
 else 
@@ -37,24 +40,23 @@ else
         sleep 2
 fi
 
-echo 'Adding RPM Fusion repos'
-#Enable RPM Fusion repositories
-sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf install -y https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
-
 mv $HOME/config-files/* $HOME/.config
 mv $HOME/.config/.zshrc $HOME/.zshrc
 
 echo 'Downloading programs......'
 #Download brave browser
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-dnf install -y brave-browser
 
 
 #Download essential programs
-dnf install -y -q neovim zsh neomutt newsboat protonvpn libappindicator-gtk3 gnome-tweaks gnome-shell-extension-appindicator tlp tlp-rdw mpv sxiv zathura seahorse-nautilus htop nmtui lf qbittorrent libva libva-utils libva-intel-driver lynx foot
+while IFS= read -r line;do
+    echo "Installing $line"
+    dnf install -y -q $line
+    echo "$line Installed successfully."
+done < "programs.txt"
+echo "
+Complete"
 
 #start power-management
 tlp start

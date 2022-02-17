@@ -37,7 +37,7 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export LIBVA_DRIVER_NAME=i965
-#export LIBVA_DRIVERS_PATH=/usr/lib64/dri
+export LIBVA_DRIVERS_PATH=/usr/lib64/dri
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -54,12 +54,15 @@ export TERMINAL='foot'
 alias zshrc="nvim ~/.zshrc"
 alias vimrc="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
+alias mpv="noglob mpv"
 alias sdf="sudo dnf -y update"
 alias vim="nvim"
 alias bitwarden="~/.local/src/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
 alias c="clear"
 alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
+alias videos="cd $HOME/Documents/Videos"
+
 #Use fzf to quickly cd into directory
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
