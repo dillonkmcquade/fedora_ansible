@@ -42,18 +42,18 @@ dnf install -y -q https://download1.rpmfusion.org/free/fedora/rpmfusion-free-rel
 
 echo 'Downloading programs......'
 #Download brave browser
-dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+dnf config-manager -y --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-dnf copr enable flatcap/neomutt
+dnf copr -y enable flatcap/neomutt
 #Download essential programs
 BASEDIR=$(dirname $0)
 while IFS= read -r line;do
     echo "Installing $line"
-    [ -d "${BASEDIR}/$line" ] && cp -r "${BASEDIR}/$line" "$HOME/.config/$line" && echo "Sorting config files for $line"
-    [ -f "${BASEDIR}/.${line}rc" ] && cp "${BASEDIR}/.${line}rc" "$HOME/.${line}rc" && echo "Sorting $line to home directory"
+    [ -d "/home/$USER/config-files/$line" ] && cp -r "/home/$USER/config-files/$line" "/home/$USER/.config/$line" && echo "Sorting config files for $line"
+    [ -f "/home/$USER/config-files/.${line}rc" ] && cp "/home/$USER/config-files/.${line}rc" "/home/$USER/.${line}rc" && echo "Sorting $line to home directory"
     if [ "$line" == "neovim" ]; then
-            cp -r "${BASEDIR}/nvim" "$HOME/.config/nvim"
+            cp -r "/home/$USER/config-files/nvim" "$HOME/.config/nvim"
         fi
     dnf install -y -q $line
 done < "programs.txt"
