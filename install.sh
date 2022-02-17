@@ -36,20 +36,25 @@ else
         echo 'Not updating repos.'
         sleep 2
 fi
+echo 'adding RPM fusion and proton repos'
+dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
 
 echo 'Downloading programs......'
 #Download brave browser
-dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 #Download essential programs
 while IFS= read -r line;do
     echo "Installing $line"
-    [ -d "./$line" ] && cp ./$line $HOME/.config/$line && echo "Sorting config files for $line"
+    [ -d "./$line" ] && cp -r ./$line $HOME/.config/$line && echo "Sorting config files for $line"
     [ -f "./.${line}rc" ] && cp ./.${line}rc $HOME/.${line}rc && echo "Sorting $line to home directory"
     dnf install -y -q $line
-    echo "$line Installed successfully."
+    if [ "$?" == 0 ]; then
+            continue
+        else
+                echo "$line Installed successfully"
+        fi
 done < "programs.txt"
 echo "
 Core programs installed."
