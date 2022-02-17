@@ -3,7 +3,7 @@
 # speeding up the uptime on a fresh install.
 
 if [[ $EUID -ne 0 ]]; then
-        echo "This script must be run as root"
+        echo "Error: This script must be run with superuser privileges. Re-run command with sudo."
         exit 1
 fi
 echo '
@@ -37,9 +37,6 @@ else
         sleep 2
 fi
 
-cp .zshrc $HOME/.zshrc
-cp * $HOME/.config
-
 echo 'Downloading programs......'
 #Download brave browser
 dnf install -y dnf-plugins-core
@@ -49,6 +46,8 @@ rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 #Download essential programs
 while IFS= read -r line;do
     echo "Installing $line"
+    [ -d "./$line" ] && cp ./$line $HOME/.config/$line && echo "Sorting config files for $line"
+    [ -f "./.${line}rc" ] && cp ./.${line}rc $HOME/.${line}rc && echo "Sorting $line to home directory"
     dnf install -y -q $line
     echo "$line Installed successfully."
 done < "programs.txt"
