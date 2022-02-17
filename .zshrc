@@ -1,11 +1,10 @@
 #Dillon's zsh config
 
 
-path+=('/home/dillon/.local/bin')
+path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
-path+=('/home/dillon/ideaIC-2020.1/idea-IC-201.6668.121/bin')
-path+=('/home/dillon/monero/build/Linux/release-v0.17/release/bin')
-path+=('/home/dillon/.local/src/AppImages')
+path+=("/home/$USER/monero/build/Linux/release-v0.17/release/bin")
+path+=("/home/$USER/.local/src/AppImages")
 export PATH
 
 #History in cache directory
@@ -148,6 +147,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 #provides 'fzf' command to search for files
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-source /home/dillon/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/"$USER"/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #syntax highlighting for ZSH
-source /home/dillon/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/"$USER"/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
