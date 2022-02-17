@@ -1,10 +1,7 @@
 #!/bin/sh
-
-#
 # This script is for automating installation of programs and repositories for Fedora and
 # speeding up the uptime on a fresh install.
-# Check comments for optional installs.
-#
+
 if [[ $EUID -ne 0 ]]; then
         echo "This script must be run as root"
         exit 1
@@ -40,14 +37,14 @@ else
         sleep 2
 fi
 
-mv $HOME/config-files/* $HOME/.config
-mv $HOME/.config/.zshrc $HOME/.zshrc
+cp .zshrc $HOME/.zshrc
+cp * $HOME/.config
 
 echo 'Downloading programs......'
 #Download brave browser
+dnf install -y dnf-plugins-core
 dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-
 
 #Download essential programs
 while IFS= read -r line;do
@@ -56,7 +53,7 @@ while IFS= read -r line;do
     echo "$line Installed successfully."
 done < "programs.txt"
 echo "
-Complete"
+Core programs installed."
 
 #start power-management
 tlp start
