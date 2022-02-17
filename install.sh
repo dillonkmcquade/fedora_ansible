@@ -36,6 +36,7 @@ else
         echo 'Not updating repos.'
         sleep 2
 fi
+
 echo 'adding RPM fusion and proton repos'
 dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
 
@@ -51,7 +52,7 @@ while IFS= read -r line;do
     [ -f "./.${line}rc" ] && cp ./.${line}rc $HOME/.${line}rc && echo "Sorting $line to home directory"
     dnf install -y -q $line
     if [ "$?" == 0 ]; then
-            continue
+            return  
         else
                 echo "$line Installed successfully"
         fi
