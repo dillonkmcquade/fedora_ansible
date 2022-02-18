@@ -18,5 +18,4 @@ libva
 libva-utils
 libva-intel-driver
 lynx
-foot
 brave-browser
