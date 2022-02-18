@@ -151,6 +151,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 #provides 'fzf' command to search for files
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+#Auto suggestions for ZSH
 source /home/"$USER"/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #syntax highlighting for ZSH
 source /home/"$USER"/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
