@@ -2,10 +2,6 @@
 # This script is for automating installation of programs and repositories for Fedora and
 # speeding up the uptime on a fresh install.
 
-if [[ $EUID -ne 0 ]]; then
-        echo "Error: This script must be run with superuser privileges. Re-run command with sudo."
-        exit 1
-fi
 echo '
 ---------------------------------------------------------------------------
 
@@ -29,7 +25,7 @@ echo '
 read -p "Update Repos? [y/N]:" starrt
 if [ "$starrt" == "y" ]
 then
-        dnf update -y 
+        sudo dnf update -y 
         echo 'Update Successful'
         sleep 2
 else 
@@ -38,16 +34,15 @@ else
 fi
 
 echo 'adding RPM fusion and proton repos'
-dnf install -y -q https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
+sudo dnf install -y -q https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm https://protonvpn.com/download/protonvpn-stable-release-1.0.1-1.noarch.rpm
 
 echo 'Downloading programs......'
 #Download brave browser
-dnf config-manager -y --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf config-manager -y --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-dnf copr -y enable flatcap/neomutt
+sudo dnf copr -y enable flatcap/neomutt
 #Download essential programs
-BASEDIR=$(dirname $0)
 while IFS= read -r line;do
     echo "Installing $line"
     [ -d "/home/$USER/config-files/$line" ] && cp -r "/home/$USER/config-files/$line" "/home/$USER/.config/$line" && echo "Sorting config files for $line"
@@ -55,13 +50,13 @@ while IFS= read -r line;do
     if [ "$line" == "neovim" ]; then
             cp -r "/home/$USER/config-files/nvim" "$HOME/.config/nvim"
         fi
-    dnf install -y -q $line
+    sudo dnf install -y -q $line
 done < "programs.txt"
 echo "
 Core programs installed."
 
 #start power-management
-tlp start
+sudo tlp start
 
 #Set gtk-theme to dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark

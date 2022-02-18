@@ -143,6 +143,10 @@ ex=🎯:\
 *.jar=♨:\
 *.java=♨:\
 "
+#Check for zsh plugins
+[ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
+[ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
+
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 #provides 'fzf' command to search for files
