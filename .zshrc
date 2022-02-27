@@ -5,6 +5,7 @@ path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
 path+=("/home/$USER/monero/build/Linux/release-v0.17/release/bin")
 path+=("/home/$USER/.local/src/AppImages")
+path+=("/home/$USER/.local/src/go/bin")
 export PATH
 
 #History in cache directory
@@ -53,7 +54,6 @@ export TERMINAL='foot'
 alias zshrc="nvim ~/.zshrc"
 alias vimrc="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
-alias mpv="noglob mpv"
 alias sdf="sudo dnf -y update"
 alias vim="nvim"
 alias bitwarden="~/.local/src/AppImages/Bitwarden-1.30.0-x86_64.AppImage & disown"
@@ -65,84 +65,6 @@ alias videos="cd $HOME/Documents/Videos"
 #Use fzf to quickly cd into directory
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
-#File icons for lf
-export LF_ICONS="di=📁:\
-fi=📃:\
-tw=🤝:\
-ow=📂:\
-ln=⛓:\
-or=❌:\
-ex=🎯:\
-*.txt=✍:\
-*.mom=✍:\
-*.me=✍:\
-*.ms=✍:\
-*.png=🖼:\
-*.webp=🖼:\
-*.ico=🖼:\
-*.jpg=📸:\
-*.jpe=📸:\
-*.jpeg=📸:\
-*.gif=🖼:\
-*.svg=🗺:\
-*.tif=🖼:\
-*.tiff=🖼:\
-*.xcf=🖌:\
-*.html=🌎:\
-*.xml=📰:\
-*.gpg=🔒:\
-*.css=🎨:\
-*.pdf=📚:\
-*.djvu=📚:\
-*.epub=📚:\
-*.csv=📓:\
-*.xlsx=📓:\
-*.tex=📜:\
-*.md=📘:\
-*.r=📊:\
-*.R=📊:\
-*.rmd=📊:\
-*.Rmd=📊:\
-*.m=📊:\
-*.mp3=🎵:\
-*.opus=🎵:\
-*.ogg=🎵:\
-*.m4a=🎵:\
-*.flac=🎼:\
-*.wav=🎼:\
-*.mkv=🎥:\
-*.mp4=🎥:\
-*.webm=🎥:\
-*.mpeg=🎥:\
-*.avi=🎥:\
-*.mov=🎥:\
-*.mpg=🎥:\
-*.wmv=🎥:\
-*.m4b=🎥:\
-*.flv=🎥:\
-*.zip=📦:\
-*.rar=📦:\
-*.7z=📦:\
-*.tar.gz=📦:\
-*.z64=🎮:\
-*.v64=🎮:\
-*.n64=🎮:\
-*.gba=🎮:\
-*.nes=🎮:\
-*.gdi=🎮:\
-*.1=ℹ:\
-*.nfo=ℹ:\
-*.info=ℹ:\
-*.log=📙:\
-*.iso=📀:\
-*.img=📀:\
-*.bib=🎓:\
-*.ged=👪:\
-*.part=💔:\
-*.torrent=🔽:\
-*.jar=♨:\
-*.java=♨:\
-"
 #Check for zsh plugins
 [ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
 [ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
