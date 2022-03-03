@@ -48,7 +48,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 #default programs
 export BROWSER='brave-browser'
 export EDITOR='nvim'
-export TERMINAL='foot'
+export TERMINAL='gnome-terminal'
 #
 # Aliases
 alias zshrc="nvim ~/.zshrc"
@@ -61,6 +61,7 @@ alias c="clear"
 alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias videos="cd $HOME/Documents/Videos"
+alias ll="ls -alh"
 
 #Use fzf to quickly cd into directory
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'

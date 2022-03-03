@@ -27,3 +27,6 @@ sudo
 libreoffice
 libxft
 libx11
+lf
+firewalld
+network-manager-applet
