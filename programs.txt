@@ -1,14 +1,14 @@
 neovim
 zsh
+geary
 neomutt
 newsboat
 protonvpn
 libappindicator-gtk3
 gnome-tweaks
 gnome-shell-extension-appindicator
-tlp
-tlp-rdw
-mpv
+libreoffice
+virtualbox
 sxiv
 zathura
 seahorse-nautilus

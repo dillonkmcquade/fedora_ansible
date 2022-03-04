@@ -58,9 +58,10 @@ done < "programs.txt"
 echo "
 Core programs installed."
 
-echo  'Starting TLP power management'
-#start power-management
-sudo tlp start > /dev/null 2>&1
+sudo dnf build-dep mpv
+git clone https://github.com/mpv-player/mpv-build.git 
+git clone https://github.com/lukesmithxyz/st.git
+git clone https://github.com/uditkarode/libxft-bgra.git
 
 #Set gtk-theme to dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
