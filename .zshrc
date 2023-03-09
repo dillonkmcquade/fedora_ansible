@@ -6,6 +6,7 @@ path+=('/usr/local/bin')
 path+=("/home/$USER/monero/build/Linux/release-v0.17/release/bin")
 path+=("/home/$USER/.local/src/AppImages")
 path+=("/home/$USER/.local/src/go/bin")
+path+=("/home/$USER/.cargo/bin")
 export PATH
 
 #History in cache directory
@@ -38,6 +39,7 @@ export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export LIBVA_DRIVER_NAME=i965
 export LIBVA_DRIVERS_PATH=/usr/lib64/dri
+export PORT=3000
 
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
@@ -61,6 +63,7 @@ alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillon
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias videos="cd $HOME/Documents/Videos"
 alias ll="ls -alh"
+alias vimfzf='vim $(fzf)'
 
 #Use fzf to quickly cd into directory
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
@@ -68,8 +71,9 @@ bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 #Check for zsh plugins
 [ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
 [ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
-
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
+bindkey '^ ' autosuggest-accept
 
 #provides 'fzf' command to search for files
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh

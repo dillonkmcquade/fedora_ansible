@@ -31,7 +31,6 @@ set title
 set showtabline=2
 set expandtab
 set autoindent
-"set colorcolumn=110
 set nocompatible
 set showmatch
 set wildmode=longest:list,full
@@ -39,35 +38,44 @@ set wildmenu
 set splitbelow
 set splitright
 set relativenumber
-"set columns=80
 syntax on
 filetype on
 filetype plugin on
 filetype indent on
-"highlight ColorColumn ctermbg=darkgray
-autocmd Filetype c setlocal shiftwidth=4 softtabstop=4 cindent
-autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
-
-"updates plugin on vim launch
-"autocmd VimEnter * PlugInstall
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+autocmd Filetype c setlocal cindent
 
 "plugin manager
-call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/vim/plugged"'))
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'junegunn/fzf'
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'jiangmiao/auto-pairs'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'frazrepo/vim-rainbow'
+Plug 'luochen1990/rainbow'
 Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
+Plug 'sheerun/vim-polyglot'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
 call plug#end()
 
-"NERDTree toggle
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"NERDTree 
+"---------------
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Start NERDTree when Vim is started without file arguments.
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | Vexplore | endif
+nmap <TAB> :NERDTreeToggle<CR>  
 
 "sonph/onehalf plugin
 colorscheme onehalfdark
+
+"remove highlighting everywhere
+let g:ale_set_highlights = 0
 
 "rainbow brackets plugin
 let g:rainbow_active = 1
@@ -80,10 +88,12 @@ nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
+nnoremap j gj
+nnoremap k gk
+nnoremap ; :
 
 "Key mappings
 nmap <Space> :w<CR>
-nmap <F6> :NERDTreeToggle<CR>  
 
 "Lightline settings and ALE integration
 let g:lightline = {}

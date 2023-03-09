@@ -1,6 +1,5 @@
 #!/bin/sh
-# This script is for automating installation of programs and repositories for Fedora and
-# speeding up the uptime on a fresh install.
+# This script is for automating installation of programs and repositories for Fedora on a fresh install.
 
 echo '
 ---------------------------------------------------------------------------
