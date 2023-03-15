@@ -58,6 +58,7 @@ Plug 'luochen1990/rainbow'
 Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
+Plug 'alvan/vim-closetag'
 Plug 'PhilRunninger/nerdtree-buffer-ops'
 call plug#end()
 
@@ -77,11 +78,21 @@ colorscheme onehalfdark
 "remove highlighting everywhere
 let g:ale_set_highlights = 0
 
+let g:ale_fixers = {
+                  \ 'javascript': ['prettier', 'eslint'],
+                  \ 'javascriptreact': ['prettier', 'eslint']}
+let g:ale_linters= {
+                  \ 'javascript': ['eslint']}
+let g:ale_fix_on_save = 1
+
 "rainbow brackets plugin
 let g:rainbow_active = 1
 
 "Ale integration with lightline
 let g:lightline#extensions#ale#enabled = 1
+
+"closetag file types
+let g:closetag_filenames = "*.html,*.xhtml,*.js,*.jsx,*.xml"
 
 " Remove newbie crutches in Normal Mode
 nnoremap <Down> <Nop>
