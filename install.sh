@@ -57,8 +57,6 @@ done < "programs.txt"
 echo "
 Core programs installed."
 
-sudo dnf build-dep mpv
-git clone https://github.com/mpv-player/mpv-build.git 
 git clone https://github.com/lukesmithxyz/st.git
 git clone https://github.com/uditkarode/libxft-bgra.git
 

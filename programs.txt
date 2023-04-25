@@ -10,7 +10,6 @@ gnome-shell-extension-appindicator
 libreoffice
 virtualbox
 sxiv
-zathura
 vlc
 seahorse-nautilus
 htop
