@@ -41,9 +41,6 @@ echo 'Adding Brave repository'
 sudo dnf config-manager -y --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ >/dev/null 2>&1
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc >/dev/null 2>&1
 
-echo 'Enabling neomutt repository'
-sudo dnf copr -y enable flatcap/neomutt >/dev/null 2>&1
-
 echo 'Downloading core programs'
 while IFS= read -r line;do
     echo "Installing $line"
@@ -56,9 +53,6 @@ while IFS= read -r line;do
 done < "programs.txt"
 echo "
 Core programs installed."
-
-git clone https://github.com/lukesmithxyz/st.git
-git clone https://github.com/uditkarode/libxft-bgra.git
 
 #Set gtk-theme to dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark

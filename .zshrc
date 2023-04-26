@@ -60,7 +60,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 export BROWSER='brave-browser'
 export EDITOR='nvim'
 export TERMINAL='gnome-terminal'
-#export TERM='screen-256color'
 #
 # Aliases
 alias zshrc="nvim ~/.zshrc"
