@@ -5,7 +5,7 @@ path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
 path+=("/home/$USER/monero/build/Linux/release-v0.17/release/bin")
 path+=("/home/$USER/.local/src/AppImages")
-path+=("/home/$USER/.local/src/go/bin")
+path+=("/home/$USER/.local/share/go/bin")
 path+=("/home/$USER/.cargo/bin")
 path+=("/home/$USER/.deno/bin")
 export PATH

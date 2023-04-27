@@ -9,7 +9,7 @@ set cleaner '~/.config/lf/cleaner'
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f evince $fx >/dev/null 2>&1 ;;
-        text/*) $EDITOR $fx;;
+        text/*) nvim $fx;;
         application/vnd.oasis.opendocument.text) libreoffice $f ;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
