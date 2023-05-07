@@ -1,5 +1,8 @@
 #Dillon's zsh config
-
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git node dnf)
+source $ZSH/oh-my-zsh.sh
 
 path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
@@ -22,8 +25,8 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST
 
 #enable colors
-autoload -U colors && colors
-PROMPT="%{$fg[blue]%}%n %{$fg[magenta]%}%~%{$fg[blue]%}${vcs_info_msg_0_} %{$reset_color%}$%b "
+#autoload -U colors && colors
+#PROMPT="%{$fg[blue]%}%n %{$fg[magenta]%}%~%{$fg[blue]%}${vcs_info_msg_0_} %{$reset_color%}$%b "
 
 #auto tab complete
 autoload -U compinit
@@ -73,6 +76,7 @@ alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/walle
 alias videos="cd $HOME/Documents/Videos"
 alias ll="ls -alh"
 alias vimfzf='vim $(fzf)'
+alias books="cd $HOME/Documents/Books/computer_science"
 
 #Use fzf to quickly cd into directory
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
@@ -90,6 +94,9 @@ bindkey '^ ' autosuggest-accept
 source /home/"$USER"/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #syntax highlighting for ZSH
 source /home/"$USER"/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export LF_COLORS="\
+~/Documents=01;31:\
+"
 
 # pnpm
 export PNPM_HOME="/home/dillon/.local/share/pnpm"
