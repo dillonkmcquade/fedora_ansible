@@ -3,10 +3,9 @@
 set shell zsh
 set period 1
 set shellopts '-eu'
-set hiddenfiles *.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set previewer '~/.config/lf/preview'
 set cleaner '~/.config/lf/cleaner'
-set icons true
+set icons 
 map V invert-below
 map D delete
 cmd open ${{

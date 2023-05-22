@@ -34,7 +34,7 @@ su      u       # SETUID
 sg      g       # SETGID
 ex             # EXEC
 fi             # FILE
-
+*.class        # Java bytecode
 # file extensions (vim-devicons)
 *.styl          
 *.sass          

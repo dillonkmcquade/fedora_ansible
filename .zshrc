@@ -1,3 +1,4 @@
+source ~/.env_secrets
 #Dillon's zsh config
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
@@ -35,7 +36,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots) #include hidden files
 
-#Home directory cleanup
+#Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -51,8 +52,6 @@ export LIBVA_DRIVER_NAME=i965
 export LIBVA_DRIVERS_PATH=/usr/lib64/dri
 export port=3001
 export DENO_INSTALL="/home/$USER/.deno"
-source ~/.env_secrets
-
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -60,12 +59,12 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 #default programs
-export BROWSER='brave-browser'
+export BROWSER='firefox'
 export EDITOR='nvim'
 export TERMINAL='gnome-terminal'
 #
 # Aliases
-alias zshrc="nvim ~/.zshrc"
+alias zshrc="nvim ~/.config/zsh/.zshrc"
 alias vimrc="nvim $XDG_CONFIG_HOME/nvim"
 alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
 alias sdf="sudo dnf -y update"
@@ -75,8 +74,9 @@ alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillon
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias videos="cd $HOME/Documents/Videos"
 alias ll="ls -alh"
-alias vimfzf='vim $(fzf)'
-alias books="cd $HOME/Documents/Books/computer_science"
+alias fzf="fzf --bind 'enter:become(nvim {})'"
+alias gs="git status"
+alias gc="git commit"
 
 #Use fzf to quickly cd into directory
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
@@ -105,3 +105,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

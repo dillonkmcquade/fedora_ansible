@@ -24,6 +24,7 @@
 # st      37;44           # STICKY
 # ex      01;32           # EXEC
 
+
 # default values from lf (with matching order)
 # ln      01;36   # LINK
 # or      31;01   # ORPHAN
@@ -63,6 +64,7 @@ fi      00      # FILE
 ~/.zshrc 00;36
 ~/.config/nvim 00;36
 ~/.config/lf 00;36
+*.class 01;32
 
 # archives or compressed (dircolors defaults)
 *.tar   01;31
