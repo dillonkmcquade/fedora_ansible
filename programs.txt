@@ -1,4 +1,7 @@
 neovim
+fd-find
+ncdu
+virt-manager
 tmux
 weechat
 zsh
@@ -8,9 +11,9 @@ libappindicator-gtk3
 gnome-tweaks
 gnome-shell-extension-appindicator
 libreoffice
-virtualbox
 sxiv
 vlc
+mpv
 zathura
 seahorse-nautilus
 htop

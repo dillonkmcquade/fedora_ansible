@@ -39,8 +39,17 @@ lsp.on_attach(function(client, bufnr)
 	end, opts)
 end)
 
--- (Optional) Configure lua language server for neovim
+--Configure lua language server for neovim
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+
+--Provides formatting capabilities
+local null_ls = require("null-ls")
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.stylua,
+	},
+})
 
 -- Format on save
 lsp.format_on_save({
@@ -67,6 +76,8 @@ lsp.ensure_installed({
 	"tsserver",
 	"lua_ls",
 })
+
+--Gutter icons
 lsp.set_sign_icons({
 	error = "✘",
 	warn = "▲",
@@ -74,11 +85,12 @@ lsp.set_sign_icons({
 	info = "»",
 })
 
+--Required by friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
+--Autocomplete plugin
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
 cmp.setup({
 	sources = {
 		{ name = "path" },

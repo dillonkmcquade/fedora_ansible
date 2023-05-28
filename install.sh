@@ -1,16 +1,6 @@
 #!/bin/sh
 # This script is for automating installation of programs and repositories for Fedora on a fresh install.
 
-echo '
----------------------------------------------------------------------------
-
-Starting Dillons Fedora bootstrapping script
-
----------------------------------------------------------------------------
-
-Beginning installscript............
-
-'
 read -p "Press y to start: " yesno
 if [ "$yesno" != "y" ]
 then

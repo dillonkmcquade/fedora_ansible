@@ -52,6 +52,8 @@ export LIBVA_DRIVER_NAME=i965
 export LIBVA_DRIVERS_PATH=/usr/lib64/dri
 export port=3001
 export DENO_INSTALL="/home/$USER/.deno"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+export MOZ_ENABLE_WAYLAND=1
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

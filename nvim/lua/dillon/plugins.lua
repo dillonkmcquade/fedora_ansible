@@ -14,13 +14,14 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require("packer").startup(function(use)
-	-- Packer can manage itself
+	--Packer
 	use("wbthomason/packer.nvim")
 
+	--Theme
 	use("rmehri01/onenord.nvim")
 
+	--Close tags in html and autopair (['{"
 	use("windwp/nvim-ts-autotag")
-
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
@@ -28,8 +29,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	--Wrap blocks of text
 	use("tpope/vim-surround")
 
+	--Easy commenting
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -37,25 +40,27 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	--Workflow
 	use("tpope/vim-fugitive")
-
 	use("mbbill/undotree")
 
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
-
-	use("jose-elias-alvarez/null-ls.nvim") -- For formatting
-
+	--fuzzy file navigation
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
+	--syntax highlighting, indent, and more
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+
+	--status line
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+
+	--LSP
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
@@ -74,6 +79,9 @@ return require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "rafamadriz/friendly-snippets" },
+
+			-- Formatting
+			{ "jose-elias-alvarez/null-ls.nvim" },
 		},
 	})
 
