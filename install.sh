@@ -31,14 +31,18 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc 
 echo 'Downloading core programs'
 while IFS= read -r line;do
     echo "Installing $line"
-    [ -d "~/config-files/$line" ] && cp -r "~/config-files/$line" "~/.config/$line" && echo "Sorting config files for $line" || echo 'Failed to copy config files'
-    [ -f "~/config-files/.${line}rc" ] && cp "~/config-files/.${line}rc" "~/.${line}rc" && echo "Sorting $line to home directory" || echo "Failed to copy config files"
-    if [ "$line" == "neovim" ]; then
-        cp -r "~/config-files/nvim" "~/.config/nvim" && echo "Copying $line to .config/"
-    fi
     sudo dnf install -y -q $line >/dev/null 2>&1 && echo "$line installed successfully." || echo "Failed to install $line"
 done < "programs.txt"
 echo "Core programs installed."
 
-#Set gtk-theme to dark
-gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+echo "Installing packer"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+echo "Copying configurations"
+cp -r $(pwd)/tmux /home/$USER/.config/
+cp -r $(pwd)/nvim /home/$USER/.config/
+cp -r $(pwd)/lf /home/$USER/.config/
+mkdir /home/$USER/.config/zsh
+cp -r $(pwd)/zsh /home/$USER/.config/
+ln -sf /home/$USER/.config/zsh/.zshrc /home/$USER/.zshrc

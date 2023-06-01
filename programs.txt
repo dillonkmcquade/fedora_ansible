@@ -1,3 +1,6 @@
+git
+gcc
+ripgrep
 neovim
 fd-find
 ncdu
