@@ -48,6 +48,7 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.beautysh,
 	},
 })
 
@@ -68,6 +69,7 @@ lsp.format_on_save({
 			"java",
 			"javascriptreact",
 			"lua",
+			"sh",
 		},
 	},
 })

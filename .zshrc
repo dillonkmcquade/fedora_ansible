@@ -2,7 +2,7 @@ source ~/.env_secrets
 #Dillon's zsh config
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-plugins=(git node dnf)
+plugins=(git node dnf tmux npm pod)
 source $ZSH/oh-my-zsh.sh
 
 path+=("/home/$USER/.local/bin")
@@ -19,22 +19,22 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-zstyle ':vcs_info:git:*' formats '%b '
-setopt PROMPT_SUBST
+# autoload -Uz vcs_info
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+# zstyle ':vcs_info:git:*' formats '%b '
+# setopt PROMPT_SUBST
 
 #enable colors
 #autoload -U colors && colors
 #PROMPT="%{$fg[blue]%}%n %{$fg[magenta]%}%~%{$fg[blue]%}${vcs_info_msg_0_} %{$reset_color%}$%b "
 
 #auto tab complete
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) #include hidden files
+ autoload -U compinit
+ zstyle ':completion:*' menu select
+ zmodload zsh/complist
+ compinit
+ _comp_options+=(globdots) #include hidden files
 
 #Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -54,6 +54,7 @@ export port=3001
 export DENO_INSTALL="/home/$USER/.deno"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export MOZ_ENABLE_WAYLAND=1
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -84,11 +85,11 @@ alias gc="git commit"
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 #Check for zsh plugins
-[ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
-[ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
-bindkey '^ ' autosuggest-accept
+ [ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
+ [ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
+ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
+ bindkey '^ ' autosuggest-accept
 
 #provides 'fzf' command to search for files
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
@@ -109,7 +110,3 @@ esac
 # pnpm end
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
