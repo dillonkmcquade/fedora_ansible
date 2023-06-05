@@ -1,9 +1,13 @@
-source ~/.env_secrets
 #Dillon's zsh config
+#
 export ZSH="$HOME/.oh-my-zsh"
+
 ZSH_THEME="robbyrussell"
-plugins=(git node dnf tmux npm pod)
+
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
+
 source $ZSH/oh-my-zsh.sh
+source ~/.env_secrets
 
 path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
@@ -19,22 +23,12 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
-# autoload -Uz vcs_info
-# precmd_vcs_info() { vcs_info }
-# precmd_functions+=( precmd_vcs_info )
-# zstyle ':vcs_info:git:*' formats '%b '
-# setopt PROMPT_SUBST
-
-#enable colors
-#autoload -U colors && colors
-#PROMPT="%{$fg[blue]%}%n %{$fg[magenta]%}%~%{$fg[blue]%}${vcs_info_msg_0_} %{$reset_color%}$%b "
-
 #auto tab complete
- autoload -U compinit
- zstyle ':completion:*' menu select
- zmodload zsh/complist
- compinit
- _comp_options+=(globdots) #include hidden files
+ # autoload -U compinit
+ # zstyle ':completion:*' menu select
+ # zmodload zsh/complist
+ # compinit
+ # _comp_options+=(globdots) #include hidden files
 
 #Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -54,7 +48,6 @@ export port=3001
 export DENO_INSTALL="/home/$USER/.deno"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export MOZ_ENABLE_WAYLAND=1
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -77,7 +70,7 @@ alias loadwallet="electrum load_wallet -w $XDG_DATA_HOME/electrum/wallets/Dillon
 alias getbalance="electrum getbalance --offline -w $XDG_DATA_HOME/electrum/wallets/Dillons\ Wallet"
 alias videos="cd $HOME/Documents/Videos"
 alias ll="ls -alh"
-alias fzf="fzf --bind 'enter:become(nvim {})'"
+#alias fzf="fzf --bind 'enter:become(nvim {})'"
 alias gs="git status"
 alias gc="git commit"
 
@@ -85,21 +78,14 @@ alias gc="git commit"
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 #Check for zsh plugins
- [ ! -d "~/.config/zsh/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.config/zsh/zsh-autosuggestions >/dev/null 2>&1
- [ ! -d "~/.config/zsh/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.config/zsh/zsh-syntax-highlighting >/dev/null 2>&1
- ZSH_AUTOSUGGEST_STRATEGY=(history completion)
- ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
+ [ ! -d "~/.oh-my-zsh/plugins/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.oh-my-zsh/plugins/zsh-autosuggestions >/dev/null 2>&1
+ [ ! -d "~/.oh-my-zsh/plugins/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.oh-my-zsh/plugins/zsh-syntax-highlighting >/dev/null 2>&1
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
  bindkey '^ ' autosuggest-accept
 
 #provides 'fzf' command to search for files
 [ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
-#Auto suggestions for ZSH
-source /home/"$USER"/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-#syntax highlighting for ZSH
-source /home/"$USER"/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export LF_COLORS="\
-~/Documents=01;31:\
-"
 
 # pnpm
 export PNPM_HOME="/home/dillon/.local/share/pnpm"
