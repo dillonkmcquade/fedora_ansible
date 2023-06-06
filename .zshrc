@@ -24,11 +24,11 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 #auto tab complete
- # autoload -U compinit
- # zstyle ':completion:*' menu select
- # zmodload zsh/complist
- # compinit
- # _comp_options+=(globdots) #include hidden files
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) #include hidden files
 
 #Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -73,6 +73,7 @@ alias ll="ls -alh"
 #alias fzf="fzf --bind 'enter:become(nvim {})'"
 alias gs="git status"
 alias gc="git commit"
+alias tmuxrc="nvim ~/.config/tmux/tmux.conf"
 
 #Use fzf to quickly cd into directory
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
@@ -80,7 +81,7 @@ alias gc="git commit"
 #Check for zsh plugins
  [ ! -d "~/.oh-my-zsh/plugins/zsh-autosuggestions" ] && git clone "https://github.com/zsh-users/zsh-autosuggestions.git" /home/$USER/.oh-my-zsh/plugins/zsh-autosuggestions >/dev/null 2>&1
  [ ! -d "~/.oh-my-zsh/plugins/zsh-syntax-highlighting" ] && git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /home/$USER/.oh-my-zsh/plugins/zsh-syntax-highlighting >/dev/null 2>&1
-# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#767676"
  bindkey '^ ' autosuggest-accept
 
@@ -96,3 +97,6 @@ esac
 # pnpm end
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+export ARCHFLAGS="-arch x86_64"
