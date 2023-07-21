@@ -49,6 +49,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.beautysh,
+		null_ls.builtins.formatting.gofumpt,
 	},
 })
 
@@ -65,11 +66,13 @@ lsp.format_on_save({
 			"css",
 			"html",
 			"json",
+			"jsonc",
 			"markdown",
 			"java",
 			"javascriptreact",
 			"lua",
 			"sh",
+			"go",
 		},
 	},
 })
@@ -77,6 +80,8 @@ lsp.format_on_save({
 lsp.ensure_installed({
 	"tsserver",
 	"lua_ls",
+	"html",
+	"cssls",
 })
 
 --Gutter icons

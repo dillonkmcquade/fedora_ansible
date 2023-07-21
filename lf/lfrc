@@ -1,10 +1,9 @@
 
-
 set shell zsh
 set period 1
 set shellopts '-eu'
-set previewer '~/.config/lf/preview'
 set cleaner '~/.config/lf/cleaner'
+set previewer '~/.config/lf/preview'
 set icons 
 map V invert-below
 map D delete

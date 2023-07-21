@@ -48,6 +48,13 @@ export port=3001
 export DENO_INSTALL="/home/$USER/.deno"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 export MOZ_ENABLE_WAYLAND=1
+export FZF_ALT_C_OPTS="-e"
+export FZF_DEFAULT_COMMAND='fd . --type f --strip-cwd-prefix --hidden'
+export FZF_ALT_C_COMMAND='fd . --type d --strip-cwd-prefix --hidden'
+export FZF_DEFAULT_OPTS='--reverse'
+export FLYCTL_INSTALL="/home/dillon/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+export NODE_ENV="development"
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
