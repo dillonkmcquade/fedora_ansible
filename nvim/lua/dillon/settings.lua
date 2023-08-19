@@ -12,6 +12,7 @@ vim.opt.undofile = true
 vim.opt.termguicolors = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.scrolloff = 8
 --vim.opt.autochdir = true
 --vim.g.netrw_banner = 0
 vim.g.closetag_filenames = "*.html, *.xml, *.jsx, *.tsx, *.js"

@@ -1,5 +1,5 @@
 require("onenord").setup({
-    disable = {
-        background = true,
-    }
+	disable = {
+		background = true,
+	},
 })

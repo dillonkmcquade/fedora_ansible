@@ -13,6 +13,7 @@ path+=("/home/$USER/.local/bin")
 path+=('/usr/local/bin')
 path+=("/home/$USER/monero/build/Linux/release-v0.17/release/bin")
 path+=("/home/$USER/.local/src/AppImages")
+path+=("/usr/local/go/bin")
 path+=("/home/$USER/.local/share/go/bin")
 path+=("/home/$USER/.cargo/bin")
 path+=("/home/$USER/.deno/bin")
@@ -37,7 +38,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ELECTRUM_PATH="$HOME/.local/share/electrum"
 export _JAVA_OPTIONS=-Djava.utils.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export GOPATH="$XDG_DATA_HOME/go"
+export GOPATH="$HOME/.local/share/go"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
@@ -60,6 +61,9 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
+#enable vim mode
+bindkey -v
 
 #default programs
 export BROWSER='firefox'

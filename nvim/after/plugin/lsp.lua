@@ -70,6 +70,7 @@ lsp.format_on_save({
 			"markdown",
 			"java",
 			"javascriptreact",
+			"typescriptreact",
 			"lua",
 			"sh",
 			"go",
@@ -117,7 +118,7 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping.confirm({ select = false }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	},
-	preselect = "item",
+	preselect = cmp.PreselectMode.None,
 	completion = {
 		completeopt = "menu,menuone,noinsert",
 	},

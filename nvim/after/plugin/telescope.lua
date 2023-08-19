@@ -1,3 +1,21 @@
+require("telescope").setup({
+	defaults = {
+		file_ignore_patterns = {
+			".git/",
+			".cache",
+			"%.o",
+			"%.a",
+			"%.out",
+			"%.class",
+			"%.pdf",
+			"%.mkv",
+			"%.mp4",
+			"%.zip",
+			"%.png",
+			"%.jpg",
+		},
+	},
+})
 local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
