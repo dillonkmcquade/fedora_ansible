@@ -35,14 +35,10 @@ while IFS= read -r line;do
 done < "programs.txt"
 echo "Core programs installed."
 
-echo "Installing packer"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 echo "Copying configurations"
-cp -r "$(pwd)/tmux" "/home/$USER/.config/"
-cp -r "$(pwd)/nvim" "/home/$USER/.config/"
-cp -r "$(pwd)/lf" "/home/$USER/.config/"
-mkdir "/home/$USER/.config/zsh"
-cp -r "$(pwd)/zsh" "/home/$USER/.config/"
-ln -sf "/home/$USER/.config/zsh/.zshrc" "/home/$USER/.zshrc"
+cp -r "$(pwd)/tmux" "$XDG_CONFIG_HOME/"
+cp -r "$(pwd)/nvim" "$XDG_CONFIG_HOME/"
+cp -r "$(pwd)/lf" "$XDG_CONFIG_HOME/"
+mkdir "$XDG_CONFIG_HOME/zsh"
+cp -r "$(pwd)/zsh" "$XDG_CONFIG_HOME/"
+ln -sf "$XDG_CONFIG_HOME/zsh/.zshrc" "/home/$USER/.zshrc"
