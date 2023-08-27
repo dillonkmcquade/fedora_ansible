@@ -38,7 +38,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export ELECTRUM_PATH="$HOME/.local/share/electrum"
 export _JAVA_OPTIONS=-Djava.utils.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-export GOPATH="$HOME/.local/share/go"
+export GOPATH="$XDG_DATA_HOME/go"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
@@ -56,6 +56,7 @@ export FZF_DEFAULT_OPTS='--reverse'
 export FLYCTL_INSTALL="/home/dillon/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export NODE_ENV="development"
+
 # Use vim keys in tab complete menu:
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -71,7 +72,7 @@ export EDITOR='nvim'
 export TERMINAL='gnome-terminal'
 #
 # Aliases
-alias zshrc="nvim ~/.config/zsh/.zshrc"
+alias zshrc="nvim $XDG_CONFIG_HOME/zsh/.zshrc"
 alias vimrc="nvim $XDG_CONFIG_HOME/nvim"
 alias muttrc="nvim $XDG_CONFIG_HOME/neomutt/neomuttrc"
 alias sdf="sudo dnf -y update"
@@ -84,7 +85,7 @@ alias ll="ls -alh"
 #alias fzf="fzf --bind 'enter:become(nvim {})'"
 alias gs="git status"
 alias gc="git commit"
-alias tmuxrc="nvim ~/.config/tmux/tmux.conf"
+alias tmuxrc="nvim $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 #Use fzf to quickly cd into directory
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
