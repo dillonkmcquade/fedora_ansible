@@ -21,10 +21,6 @@ zathura
 seahorse-nautilus
 htop
 qbittorrent
-libva
-libva-utils
-libva-intel-driver
-lynx
 brave-browser
 gimp
 inkscape
