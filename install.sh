@@ -61,3 +61,8 @@ sudo alternatives --config java
 
 echo "installing ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Reboot now? (Recommended): [y/N]"
+read -r reboot
+if [ "$reboot" = "y" ]; then reboot; fi
+echo "Finished."
