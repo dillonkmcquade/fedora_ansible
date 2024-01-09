@@ -2,7 +2,7 @@
 # This script is for automating installation of programs and repositories for Fedora on a fresh install.
 
 # verify that ssh is enabled with github
-ssh -T git@github.com || { echo 'ssh not setup with github'; exit 1; }
+! ssh -T git@github.com || { echo 'ssh not setup with github'; exit 1; }
 
 if ! command -v git
 then
@@ -26,26 +26,25 @@ sudo dnf config-manager --add-repo "https://download.docker.com/linux/fedora/doc
 echo "Enabling lazygit copr repo"
 sudo dnf copr enable atim/lazygit -y
 
-echo 'Downloading core programs'
-xargs --arg-file=./programs.txt --delim='\n' sudo dnf install -y
-
-echo "Copying configurations to their new home"
-cp ./.zshrc "/home/$USER/.zshrc"
-
 if ! command -v parallel
 then
     sudo dnf install -y parallel
 fi
 
-parallel git clone ::: \
-    "git@github.com:dillonkmcquade/nvim.git" \
-    "git@github.com:dillonkmcquade/tmux.git" \
-    "git@github.com:dillonkmcquade/lf.git" \
-    ::: \
-    "/home/$USER/.config/nvim" \
-    "/home/$USER/.config/tmux" \
-    "/home/$USER/.config/lf"
+parallel --link git clone ::: \
+  "git@github.com:dillonkmcquade/nvim.git" \
+  "git@github.com:dillonkmcquade/tmux.git" \
+  "git@github.com:dillonkmcquade/lf.git" \
+  ::: \
+  "/home/$USER/.config/nvim" \
+  "/home/$USER/.config/tmux" \
+  "/home/$USER/.config/lf"
 
+echo 'Downloading core programs'
+xargs --arg-file=./programs.txt --delim='\n' sudo dnf install -y
+
+echo "Copying configurations to their new home"
+cp ./.zshrc "/home/$USER/.zshrc"
 
 echo "installing pyenv"
 curl "https://pyenv.run" | bash
