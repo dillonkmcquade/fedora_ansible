@@ -8,9 +8,13 @@ if ! command -v git
 then
     sudo dnf install -y git
 fi
-read -p "Please enter a name to use for git: " name
+
+echo "Please enter a name to use for git: "
+read -r name
 git config --global user.name "$name"
-read -p "Please enter an email address to use for git: " email
+
+echo "Please enter an email address to use for git: "
+read -r email
 git config --global user.email "$email"
 
 echo "Adding third-party repositories"
@@ -36,13 +40,13 @@ then
 fi
 
 parallel --link git clone ::: \
-  "git@github.com:dillonkmcquade/nvim.git" \
-  "git@github.com:dillonkmcquade/tmux.git" \
-  "git@github.com:dillonkmcquade/lf.git" \
-  ::: \
-  "/home/$USER/.config/nvim" \
-  "/home/$USER/.config/tmux" \
-  "/home/$USER/.config/lf"
+    "git@github.com:dillonkmcquade/nvim.git" \
+    "git@github.com:dillonkmcquade/tmux.git" \
+    "git@github.com:dillonkmcquade/lf.git" \
+    ::: \
+    "/home/$USER/.config/nvim" \
+    "/home/$USER/.config/tmux" \
+    "/home/$USER/.config/lf"
 
 echo 'Downloading core programs'
 xargs --arg-file=./programs.txt --delim='\n' sudo dnf install -y
