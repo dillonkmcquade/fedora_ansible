@@ -1,3 +1,4 @@
+parallel
 git
 gcc
 gcc-c++
