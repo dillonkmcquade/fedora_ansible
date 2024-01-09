@@ -2,7 +2,7 @@
 # This script is for automating installation of programs and repositories for Fedora on a fresh install.
 
 # verify that ssh is enabled with github
-ssh -T git@github.com || { echo 'ssh not setup with github'; exit 1 }
+ssh -T git@github.com || { echo 'ssh not setup with github'; exit 1; }
 
 if ! command -v git
 then
