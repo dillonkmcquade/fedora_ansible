@@ -8,6 +8,10 @@ if ! command -v git
 then
     sudo dnf install -y git
 fi
+read -p "Please enter a name to use for git: " name
+git config --global user.name "$name"
+read -p "Please enter an email address to use for git: " email
+git config --global user.email "$email"
 
 echo "Adding third-party repositories"
 sudo dnf install -y \
@@ -49,7 +53,7 @@ cp ./.zshrc "/home/$USER/.zshrc"
 echo "installing pyenv"
 curl "https://pyenv.run" | bash
 
-alternatives --config java
+sudo alternatives --config java
 
 echo "installing ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
