@@ -49,8 +49,3 @@
     path: /home/{{ user }}/.config/zsh
     recurse: true
     state: directory
-
-- name: Link zsh to home folder
-  become: true
-  become_user: "{{ user }}"
-  shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc

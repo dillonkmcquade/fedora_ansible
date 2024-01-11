@@ -91,3 +91,8 @@
 
 - name: Set defualt shell to zsh
   command: chsh -s /usr/bin/zsh "{{ user }}"
+
+- name: Link zsh to home folder
+  become: true
+  become_user: "{{ user }}"
+  shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc
