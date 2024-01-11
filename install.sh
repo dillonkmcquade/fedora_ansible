@@ -29,7 +29,7 @@ sudo dnf config-manager -y --add-repo "https://brave-browser-rpm-release.s3.brav
 sudo rpm --import "https://brave-browser-rpm-release.s3.brave.com/brave-core.asc"
 
 echo "Adding docker repository"
-sudo dnf config-manager --add-repo "https://download.docker.com/linux/fedora/docker-ce.repo"
+sudo dnf config-manager -y --add-repo "https://download.docker.com/linux/fedora/docker-ce.repo"
 
 echo "Enabling lazygit copr repo"
 sudo dnf copr enable atim/lazygit -y
