@@ -75,8 +75,6 @@
     state: present
 
 - name: Install pnpm
-  become: true
-  become_user: "{{ user }}"
   community.general.npm:
     name: pnpm
     global: true
