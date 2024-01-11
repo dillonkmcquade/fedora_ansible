@@ -2,6 +2,7 @@
   dnf:
     name:
       - htop
+      - golang
       - parallel
       - git
       - gcc
@@ -54,3 +55,8 @@
   become: true
   become_user: "{{ user }}"
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+
+- name: Install lazydocker
+  become: true
+  become_user: "{{ user }}"
+  shell: GOPATH=/home/{{ user }}/.local/share/go go install github.com/jesseduffield/lazydocker@latest
