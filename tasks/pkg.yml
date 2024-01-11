@@ -1,0 +1,56 @@
+- name: Install fedora packages
+  dnf:
+    name:
+      - htop
+      - parallel
+      - git
+      - gcc
+      - gcc-c++
+      - ripgrep
+      - neovim
+      - fd-find
+      - ncdu
+      - virt-manager
+      - kernel-devel
+      - tmux
+      - weechat
+      - zsh
+      - evolution
+      - libappindicator-gtk3
+      - proton-vpn-gnome-desktop
+      - gnome-shell-extension-appindicator
+      - libreoffice
+      - sxiv
+      - vlc
+      - mpv
+      - zathura
+      - zathura-pdf-mupdf
+      - seahorse-nautilus
+      - htop
+      - qbittorrent
+      - brave-browser
+      - gimp
+      - inkscape
+      - firewall-config
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - python3-pip
+      - python3-wheel
+      - php-cli
+      - lazygit
+      - nodejs
+      - java-latest-openjdk
+    state: latest
+
+- name: Install pyenv
+  become: true
+  become_user: "{{ user }}"
+  command: curl "https://pyenv.run" | bash
+
+- name: Install oh-my-zsh
+  become: true
+  become_user: "{{ user }}"
+  command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended

@@ -1,0 +1,41 @@
+- name: Set git username
+  become: true
+  become_user: "{{ user }}"
+  command: /usr/bin/git config --global user.name "{{ full_name }}"
+
+- name: Set git email
+  become: true
+  become_user: "{{ user }}"
+  command: /usr/bin/git config --global user.email "{{ email }}"
+
+- name: Neovim config
+  become: true
+  become_user: "{{ user }}"
+  git:
+    repo: "git@github.com:dillonkmcquade/nvim.git"
+    dest: /home/{{ user }}/.config/nvim
+
+- name: Tmux config
+  become: true
+  become_user: "{{ user }}"
+  git:
+    repo: "git@github.com:dillonkmcquade/tmux.git"
+    dest: /home/{{ user }}/.config/tmux
+
+- name: lf config
+  become: true
+  become_user: "{{ user }}"
+  git:
+    repo: "git@github.com:dillonkmcquade/lf.git"
+    dest: /home/{{ user }}/.config/lf
+
+- name: zshrc
+  copy:
+    src: .zshrc
+    dest: /home/{{ user }}/
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+
+- name: Set java jdk
+  command: alternatives --set java java-latest-openjdk.x86_64
