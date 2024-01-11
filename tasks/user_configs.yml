@@ -3,20 +3,54 @@
     repo: "https://github.com/dillonkmcquade/nvim.git"
     dest: /home/{{ user }}/.config/nvim
 
+- name: Change permissions for nvim config
+  file:
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    path: /home/{{ user }}/.config/nvim
+    recurse: true
+    state: directory
+
 - name: Tmux config
   git:
     repo: "https://github.com/dillonkmcquade/tmux.git"
     dest: /home/{{ user }}/.config/tmux
+
+- name: Change permissions for tmux config
+  file:
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    path: /home/{{ user }}/.config/tmux
+    recurse: true
+    state: directory
 
 - name: lf config
   git:
     repo: "https://github.com/dillonkmcquade/lf.git"
     dest: /home/{{ user }}/.config/lf
 
+- name: Change permissions for lf config
+  file:
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    path: /home/{{ user }}/.config/lf
+    recurse: true
+    state: directory
+
 - name: zshrc
   git:
     repo: "https://github.com/dillonkmcquade/zsh.git"
     dest: /home/{{ user }}/.config/zsh
 
+- name: Change permissions for zsh config
+  file:
+    group: "{{ user }}"
+    owner: "{{ user }}"
+    path: /home/{{ user }}/.config/zsh
+    recurse: true
+    state: directory
+
 - name: Link zsh to home folder
+  become: true
+  become_user: "{{ user }}"
   shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc

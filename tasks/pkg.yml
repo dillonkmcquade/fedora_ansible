@@ -65,6 +65,11 @@
   become_user: "{{ user }}"
   shell: GOPATH=/home/{{ user }}/.local/share/go go install github.com/jesseduffield/lazydocker@latest
 
+- name: Install lf
+  become: true
+  become_user: "{{ user }}"
+  shell: env CGO_ENABLED=0 GOPATH=/home/{{ user }}/.local/share/go go install -ldflags="-s -w" github.com/gokcehan/lf@latest
+
 - name: Install packages from flatpak
   become: true
   become_user: "{{ user }}"
