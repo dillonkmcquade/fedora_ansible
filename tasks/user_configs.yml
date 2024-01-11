@@ -18,8 +18,5 @@
     repo: "https://github.com/dillonkmcquade/zsh.git"
     dest: /home/{{ user }}/.config/zsh
 
-- name: Set java jdk
-  command: alternatives --set java java-latest-openjdk.x86_64
-
 - name: Link zsh to home folder
   shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc

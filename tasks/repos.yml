@@ -1,10 +1,16 @@
-- name: Add third party repositories
+- name: Add rpm fusion repositories
   dnf:
     name:
       - "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ fedora_current }}.noarch.rpm"
       - "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_current }}.noarch.rpm"
-      - "https://repo.protonvpn.com/fedora-{{ fedora_current }}-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.1-2.noarch.rpm"
     state: present
+    disable_gpg_check: true
+
+- name: Add protonvpn repo
+  dnf:
+    name:
+      - "https://repo.protonvpn.com/fedora-{{ fedora_current }}-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.1-2.noarch.rpm"
+    disable_gpg_check: true
 
 - name: Add brave repo
   command: /usr/bin/dnf config-manager -y --add-repo "https://brave-browser-rpm-release.s3.brave.com/x86_64/"

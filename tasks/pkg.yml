@@ -5,7 +5,6 @@
       - code
       - composer
       - containerd.io
-      - dbeaver-ce
       - docker-buildx-plugin
       - docker-ce
       - docker-ce-cli
@@ -71,7 +70,7 @@
   become_user: "{{ user }}"
   community.general.flatpak:
     name:
-      - org.discordapp.Discord
+      - com.discordapp.Discord
       - net.lutris.Lutris
     state: present
 
@@ -82,3 +81,9 @@
     name: pnpm
     global: true
     state: latest
+
+- name: Set java jdk
+  command: alternatives --set java java-latest-openjdk.x86_64
+
+- name: Set defualt shell to zsh
+  command: chsh -s /usr/bin/zsh "{{ user }}"
