@@ -1,49 +1,52 @@
 - name: Install fedora packages
   dnf:
     name:
-      - htop
-      - golang
-      - parallel
-      - git
-      - gcc
-      - gcc-c++
-      - ripgrep
-      - neovim
-      - fd-find
-      - ncdu
-      - virt-manager
-      - kernel-devel
-      - tmux
-      - weechat
-      - zsh
-      - evolution
-      - libappindicator-gtk3
-      - proton-vpn-gnome-desktop
-      - gnome-shell-extension-appindicator
-      - libreoffice
-      - sxiv
-      - vlc
-      - mpv
-      - zathura
-      - zathura-pdf-mupdf
-      - seahorse-nautilus
-      - htop
-      - qbittorrent
       - brave-browser
-      - gimp
-      - inkscape
-      - firewall-config
+      - containerd.io
+      - dbeaver-ce
+      - docker-buildx-plugin
       - docker-ce
       - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
       - docker-compose-plugin
+      - evolution
+      - fd-find
+      - firewall-config
+      - gcc
+      - gcc-c++
+      - gimp
+      - git
+      - gnome-shell-extension-appindicator
+      - golang
+      - htop
+      - inkscape
+      - java-latest-openjdk
+      - kernel-devel
+      - lazygit
+      - libappindicator-gtk3
+      - libreoffice
+      - mpv
+      - ncdu
+      - neovim
+      - nodejs
+      - parallel
+      - pgadmin4
+      - php-cli
+      - proton-vpn-gnome-desktop
       - python3-pip
       - python3-wheel
-      - php-cli
-      - lazygit
-      - nodejs
-      - java-latest-openjdk
+      - qbittorrent
+      - ripgrep
+      - ruby
+      - seahorse-nautilus
+      - sxiv
+      - texstudio
+      - tmux
+      - virt-manager
+      - vlc
+      - weechat
+      - zathura
+      - zathura-pdf-mupdf
+      - zsh
     state: latest
 
 - name: Install pyenv
@@ -60,3 +63,12 @@
   become: true
   become_user: "{{ user }}"
   shell: GOPATH=/home/{{ user }}/.local/share/go go install github.com/jesseduffield/lazydocker@latest
+
+- name: Install packages from flatpak
+  become: true
+  become_user: "{{ user }}"
+  community.general.flatpak:
+    name:
+      - org.discordapp.Discord
+      - net.lutris.Lutris
+    state: present
