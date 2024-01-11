@@ -1,14 +1,10 @@
-## My config files
+### Usage
 
-This is for installing programs on a fresh install for Fedora
+- Make sure the variables defined in env.yml are correct
+- Make sure ansible is installed
 
-Edit `programs.txt` to alter the program install list. The defaults are what I want but maybe you want some others.
-
-## Installation
+Run it:
 
 ```bash
-git clone https://github.com/dillonkmcquade/config-files.git
-cd config-files
-chmod +x install.sh
-./install.sh
+ansible-playbook setup.yml -K
 ```
