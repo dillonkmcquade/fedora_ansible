@@ -31,7 +31,6 @@
       - neovim
       - nodejs
       - parallel
-      - pgadmin4
       - php-cli
       - proton-vpn-gnome-desktop
       - python3-pip
@@ -78,6 +77,8 @@
     name:
       - com.discordapp.Discord
       - net.lutris.Lutris
+      - io.dbeaver.DBeaverCommunity
+      - us.zoom.Zoom
     state: present
 
 - name: Install pnpm
