@@ -12,6 +12,7 @@
       - evolution
       - fd-find
       - firewall-config
+      - fzf
       - gcc
       - gcc-c++
       - gimp
