@@ -48,9 +48,9 @@
 - name: Install pyenv
   become: true
   become_user: "{{ user }}"
-  command: curl "https://pyenv.run" | bash
+  shell: curl https://pyenv.run | bash
 
 - name: Install oh-my-zsh
   become: true
   become_user: "{{ user }}"
-  command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended

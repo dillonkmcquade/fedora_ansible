@@ -13,6 +13,14 @@
     - name: update
       command: /usr/bin/dnf -y upgrade
 
-    - include: tasks/user_configs.yml
-    - include: tasks/repos.yml
-    - include: tasks/pkg.yml
+    - name: User configs
+      include_tasks:
+        file: tasks/user_configs.yml
+
+    - name: Repos
+      include_tasks:
+        file: tasks/repos.yml
+
+    - name: Packages
+      include_tasks:
+        file: tasks/pkg.yml
