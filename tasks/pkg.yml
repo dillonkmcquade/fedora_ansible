@@ -2,6 +2,8 @@
   dnf:
     name:
       - brave-browser
+      - code
+      - composer
       - containerd.io
       - dbeaver-ce
       - docker-buildx-plugin
@@ -72,3 +74,11 @@
       - org.discordapp.Discord
       - net.lutris.Lutris
     state: present
+
+- name: Install pnpm
+  become: true
+  become_user: "{{ user }}"
+  community.general.npm:
+    name: pnpm
+    global: true
+    state: latest
