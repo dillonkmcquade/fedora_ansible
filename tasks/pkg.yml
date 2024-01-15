@@ -1,6 +1,7 @@
 - name: Install fedora packages
   dnf:
     name:
+      - bat
       - brave-browser
       - code
       - composer
@@ -93,7 +94,12 @@
 - name: Set defualt shell to zsh
   command: chsh -s /usr/bin/zsh "{{ user }}"
 
-- name: Link zsh to home folder
+- name: Link zshrc to home folder
   become: true
   become_user: "{{ user }}"
   shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc
+
+- name: Link zprofile to home folder
+  become: true
+  become_user: "{{ user }}"
+  shell: ln -sf /home/{{ user }}/.config/zsh/.zprofile /home/{{ user }}/.zprofile
