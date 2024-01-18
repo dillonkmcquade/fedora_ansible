@@ -33,6 +33,7 @@
       - nodejs
       - parallel
       - php-cli
+      - podman-desktop
       - proton-vpn-gnome-desktop
       - python3-pip
       - python3-wheel
