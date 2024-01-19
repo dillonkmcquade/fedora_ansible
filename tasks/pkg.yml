@@ -33,7 +33,6 @@
       - nodejs
       - parallel
       - php-cli
-      - podman-desktop
       - proton-vpn-gnome-desktop
       - python3-pip
       - python3-wheel
@@ -81,6 +80,7 @@
       - net.lutris.Lutris
       - io.dbeaver.DBeaverCommunity
       - us.zoom.Zoom
+      - io.podman_desktop.PodmanDesktop
     state: present
 
 - name: Install pnpm
