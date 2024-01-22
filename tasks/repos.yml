@@ -21,9 +21,6 @@
 - name: Enable lazygit copr repo
   command: /usr/bin/dnf copr enable atim/lazygit -y
 
-- name: Add docker repo
-  command: /usr/bin/dnf config-manager -y --add-repo "https://download.docker.com/linux/fedora/docker-ce.repo"
-
 - name: VSCode signing key
   command: /usr/bin/rpm --import https://packages.microsoft.com/keys/microsoft.asc
 
