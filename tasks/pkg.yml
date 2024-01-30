@@ -32,14 +32,15 @@
       - proton-vpn-gnome-desktop
       - python3-pip
       - python3-wheel
-      - qbittorrent
       - ripgrep
       - ruby
       - seahorse-nautilus
       - sxiv
       - texlive-scheme-basic
       - tmux
+      - transmission
       - virt-manager
+      - virt-viewer
       - vlc
       - weechat
       - zathura
