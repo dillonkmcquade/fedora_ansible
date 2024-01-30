@@ -5,7 +5,6 @@
       - brave-browser
       - code
       - composer
-      - containerd.io
       - deja-dup
       - evolution
       - fd-find
