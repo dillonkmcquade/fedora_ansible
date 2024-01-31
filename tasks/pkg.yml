@@ -7,7 +7,6 @@
       - composer
       - deja-dup
       - evolution
-      - fd-find
       - firewall-config
       - fzf
       - gcc
@@ -17,13 +16,12 @@
       - gnome-shell-extension-appindicator
       - golang
       - htop
-      - inkscape
       - java-latest-openjdk
+      - java-latest-openjdk-devel
       - kernel-devel
       - lazygit
       - libappindicator-gtk3
       - libreoffice
-      - mpv
       - ncdu
       - neovim
       - nodejs
@@ -32,6 +30,7 @@
       - proton-vpn-gnome-desktop
       - python3-pip
       - python3-wheel
+      - remmina
       - ripgrep
       - ruby
       - seahorse-nautilus
@@ -41,6 +40,7 @@
       - transmission
       - virt-manager
       - virt-viewer
+      - virt-install
       - vlc
       - weechat
       - zathura
