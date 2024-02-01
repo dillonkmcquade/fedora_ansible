@@ -34,7 +34,7 @@
       - ruby
       - seahorse-nautilus
       - sxiv
-      - texlive-scheme-basic
+      - texlive-scheme-medium
       - tmux
       - transmission
       - virt-manager
