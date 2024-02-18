@@ -92,7 +92,7 @@
   become_user: "{{ user }}"
   shell: ln -sf /home/{{ user }}/.config/zsh/.zshrc /home/{{ user }}/.zshrc
 
-- name: Link zprofile to home folder
+- name: Link zshenv to home folder
   become: true
   become_user: "{{ user }}"
   shell: ln -sf /home/{{ user }}/.config/zsh/.zshenv /home/{{ user }}/.zshenv

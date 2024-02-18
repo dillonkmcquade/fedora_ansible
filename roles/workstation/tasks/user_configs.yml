@@ -7,6 +7,7 @@
   file:
     group: "{{ user }}"
     owner: "{{ user }}"
+    mode: "0700"
     path: /home/{{ user }}/.config/nvim
     recurse: true
     state: directory
@@ -20,6 +21,7 @@
   file:
     group: "{{ user }}"
     owner: "{{ user }}"
+    mode: "0700"
     path: /home/{{ user }}/.config/tmux
     recurse: true
     state: directory
@@ -33,6 +35,7 @@
   file:
     group: "{{ user }}"
     owner: "{{ user }}"
+    mode: "0700"
     path: /home/{{ user }}/.config/lf
     recurse: true
     state: directory
@@ -46,6 +49,7 @@
   file:
     group: "{{ user }}"
     owner: "{{ user }}"
+    mode: "0700"
     path: /home/{{ user }}/.config/zsh
     recurse: true
     state: directory
