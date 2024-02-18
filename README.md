@@ -18,7 +18,7 @@ Maintenance:
 #  add_pkg (needs --extra-vars "pkg=Package name")
 #  del_pkg (needs --extra-vars "pkg=Package name")
 # Example:
-ansible-playbook maintenance.yml -u root -t add_pkg --extra-vars "pkg=git" -i inventory.ini
-ansible-playbook maintenance.yml -u root -t del_pkg --extra-vars "pkg=git" -i inventory.ini
-ansible-playbook maintenance.yml -u root -t update -i inventory.ini
+ansible-playbook server-maintenance.yml -u root -t add_pkg --extra-vars "pkg=git" -i inventory.ini
+ansible-playbook server-maintenance.yml -u root -t del_pkg --extra-vars "pkg=git" -i inventory.ini
+ansible-playbook server-maintenance.yml -u root -t update -i inventory.ini
 ```
