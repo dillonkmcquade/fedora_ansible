@@ -1,0 +1,5 @@
+- hosts: servers
+  become: true
+  become_user: root
+  roles:
+    - nfs-server

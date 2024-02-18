@@ -1,0 +1,32 @@
+- name: Install additional packages
+  ansible.builtin.apt:
+    pkg:
+      - htop
+      - vim
+      - firewalld
+      - nfs-common
+      - nfs-kernel-server
+
+- name: distribute exports
+  template:
+    src: exports.j2
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: create directory to share
+  file:
+    path: /srv/nfs
+    mode: "0700"
+    recurse: true
+    owner: root
+    group: root
+    state: directory
+
+- name: configure firewall
+  ansible.posix.firewalld:
+    service: nfs
+    permanent: true
+    state: enabled
+  notify: "start nfs"

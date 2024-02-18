@@ -1,0 +1,4 @@
+- name: start nfs
+  service:
+    name: nfs-kernel-server
+    state: started

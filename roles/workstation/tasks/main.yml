@@ -1,0 +1,8 @@
+- name: Install user configs
+  import_tasks: user_configs.yml
+
+- name: Install repos
+  import_tasks: repos.yml
+
+- name: Install packages
+  import_tasks: pkg.yml

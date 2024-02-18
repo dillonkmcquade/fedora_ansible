@@ -7,6 +7,7 @@
       - composer
       - deja-dup
       - evolution
+      - filezilla
       - firewall-config
       - fzf
       - gcc

@@ -1,0 +1,28 @@
+# Package management tasks
+# Available tags:
+#  update
+#  add_pkg (needs --extra-vars "add_pkg=Package name")
+#  del_pkg (needs --extra-vars "del_pkg=Package name")
+#
+- hosts: servers
+  become: true
+  become_user: root
+  tasks:
+    - name: Update all packages to their latest version
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+      tags: update
+
+    - name: install a package
+      apt:
+        name: "{{ pkg }}"
+        state: present
+      tags: add_pkg
+
+    - name: remove a package
+      apt:
+        name: "{{ pkg }}"
+        state: absent
+      tags: del_pkg
