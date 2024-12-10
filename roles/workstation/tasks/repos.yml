@@ -21,11 +21,5 @@
 - name: Enable lazygit copr repo
   command: /usr/bin/dnf copr enable atim/lazygit -y
 
-- name: VSCode signing key
-  command: /usr/bin/rpm --import https://packages.microsoft.com/keys/microsoft.asc
-
-- name: Enable vscode repo
-  shell: sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-
 - name: Add flathub remote
   shell: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo

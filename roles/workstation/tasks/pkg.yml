@@ -3,8 +3,6 @@
     name:
       - bat
       - brave-browser
-      - code
-      - composer
       - deja-dup
       - evolution
       - filezilla
@@ -16,24 +14,18 @@
       - gnome-shell-extension-appindicator
       - golang
       - htop
-      - java-latest-openjdk
-      - java-latest-openjdk-devel
       - kernel-devel
       - lazygit
       - libappindicator-gtk3
       - libreoffice
       - ncdu
       - neovim
-      - nodejs
-      - parallel
-      - php-cli
       - proton-vpn-gnome-desktop
       - python3-pip
       - python3-neovim
       - python3-wheel
       - remmina
       - ripgrep
-      - ruby
       - seahorse-nautilus
       - sxiv
       - texlive-scheme-medium
@@ -43,16 +35,8 @@
       - virt-viewer
       - virt-install
       - vlc
-      - weechat
-      - zathura
-      - zathura-pdf-mupdf
       - zsh
     state: latest
-
-- name: Install pyenv
-  become: true
-  become_user: "{{ user }}"
-  shell: curl https://pyenv.run | bash
 
 - name: Install oh-my-zsh
   become: true
@@ -75,15 +59,6 @@
       - us.zoom.Zoom
       - io.podman_desktop.PodmanDesktop
     state: present
-
-- name: Install pnpm
-  community.general.npm:
-    name: pnpm
-    global: true
-    state: latest
-
-- name: Set java jdk
-  command: alternatives --set java java-latest-openjdk.x86_64
 
 - name: Set defualt shell to zsh
   command: chsh -s /usr/bin/zsh "{{ user }}"
